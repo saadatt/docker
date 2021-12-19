@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      args:
+        PORT_ARG: 3001
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_DB: pasv
+      MYSQL_PASSWORD: 1111
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1111
+      MYSQL_DATABASE: pasv
+    volumes:
+      - v1:/var/lib/mysql
+
+volumes:
+  v1:

@@ -15,3 +15,9 @@ db:
 
 exec:
 	docker exec -it mysql mysql -uroot -p mysql
+
+up:
+	docker-compose up -d
+
+down:
+	docker-compose down
