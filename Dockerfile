@@ -17,9 +17,7 @@ COPY main.js .
 EXPOSE 3000
 
 # устанавливаем необходимые пакеты
-RUN npm install express process fs && \
-    mkdir logs && \
-    touch logs/file.log
+RUN npm install express process fs mysql2
 
 # задаем команду, которая будет выполняться при запуске контейнера
 CMD ["node", "main.js"]
